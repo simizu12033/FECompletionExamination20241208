@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>基本情報技術者 修了試験 詳細解説 - 2024年12月8日</title>
+  <style>
+    :root {
+      --ink:#18222d; --muted:#66717d; --paper:#fffef9; --line:#dce2e7;
+      --navy:#18324a; --blue:#2563a8; --cyan:#dff5f4; --gold:#f2b84b;
+      --ok:#176b50; --ok-bg:#e9f7f0; --shadow:0 14px 38px rgba(24,50,74,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);background:#f3f6f7;font-family:"Yu Gothic UI","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;line-height:1.85}
+    button,input,select{font:inherit}
+    .hero{background:linear-gradient(135deg,#10283d 0%,#1b4f70 58%,#227d83 100%);color:white;padding:64px 22px 52px}
+    .hero-inner,.layout{max-width:1180px;margin:auto}
+    .eyebrow{letter-spacing:.12em;font-weight:700;color:#a7e5df}
+    h1{font-size:clamp(2rem,5vw,4.2rem);line-height:1.18;margin:.35rem 0 1rem;max-width:900px}
+    .hero p{max-width:760px;color:#e2eef4;font-size:1.05rem}
+    .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+    .meta span{border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:6px 13px;background:rgba(255,255,255,.08)}
+    .layout{display:grid;grid-template-columns:280px 1fr;gap:28px;padding:30px 20px 80px}
+    .side{position:sticky;top:18px;align-self:start;background:white;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}
+    .side h2{font-size:1.05rem;margin:0 0 12px}
+    .side label{font-size:.82rem;font-weight:700;color:var(--muted);display:block;margin-top:12px}
+    .side input,.side select{width:100%;padding:10px 12px;border:1px solid #bcc7cf;border-radius:10px;background:white}
+    .score{margin-top:18px;padding:14px;border-radius:13px;background:var(--cyan)}
+    .score strong{display:block;font-size:1.45rem;color:#135c60}
+    .side button{width:100%;border:0;border-radius:10px;padding:10px;margin-top:10px;cursor:pointer;font-weight:700}
+    .primary{background:var(--navy);color:white}.ghost{background:#eef2f4;color:var(--navy)}
+    .intro{background:white;border:1px solid var(--line);border-radius:18px;padding:24px 26px;box-shadow:var(--shadow);margin-bottom:22px}
+    .intro h2{margin:0 0 8px;font-size:1.35rem}.intro p{margin:0;color:var(--muted)}
+    .questions{display:grid;gap:16px}
+    .card{background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 7px 20px rgba(24,50,74,.06)}
+    .card-head{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;padding:18px 20px;cursor:pointer}
+    .num{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:var(--navy);color:white;font-weight:800}
+    .card h3{margin:0;font-size:1.08rem;line-height:1.45}.tag{color:var(--blue);font-size:.8rem;font-weight:800}
+    .answer-pill{border-radius:999px;background:var(--ok-bg);color:var(--ok);padding:5px 12px;font-weight:800;white-space:nowrap}
+    .body{display:none;border-top:1px solid var(--line);padding:20px 24px 23px}
+    .card.open .body{display:block}.card.open .card-head{background:#f7faf9}
+    .summary{font-weight:700;margin:0 0 15px}.explain{border-left:4px solid var(--gold);padding:3px 0 3px 16px}
+    .explain h4,.tip h4{margin:0 0 4px}.explain p,.tip p{margin:0}
+    .tip{margin-top:15px;padding:14px 16px;border-radius:12px;background:#edf4fa}
+    .diagram{margin:18px 0 4px;padding:16px;border:1px solid #cfdce4;border-radius:14px;background:#fff}
+    .diagram-title{font-weight:800;color:var(--navy);margin:0 0 12px;font-size:.93rem}
+    .diagram svg{display:block;width:100%;height:auto;max-height:310px}
+    .diagram text{font-family:"Yu Gothic UI","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;fill:#22313d}
+    .diagram .box{fill:#f4f8fa;stroke:#527087;stroke-width:2}
+    .diagram .accent{fill:#dff5f4;stroke:#238184;stroke-width:2}
+    .diagram .gold{fill:#fff3d6;stroke:#c78b18;stroke-width:2}
+    .diagram .bad{fill:#fdeaea;stroke:#b84b4b;stroke-width:2}
+    .diagram .arrow{stroke:#35576d;stroke-width:2.5;fill:none;marker-end:url(#arrow)}
+    .diagram-note{margin:10px 0 0;color:var(--muted);font-size:.86rem}
+    .check{display:flex;align-items:center;gap:8px;margin-top:17px;font-weight:700;color:var(--muted)}
+    .check input{width:18px;height:18px}
+    .hidden{display:none!important}
+    footer{text-align:center;color:var(--muted);padding:0 20px 50px}
+    @media(max-width:820px){.layout{grid-template-columns:1fr}.side{position:static}.card-head{grid-template-columns:auto 1fr}.answer-pill{grid-column:2}.hero{padding-top:44px}}
+    @media print{.hero{padding:28px;background:white;color:black}.hero p,.eyebrow{color:#333}.layout{display:block;padding:10px}.side{display:none}.card{break-inside:avoid;box-shadow:none}.body{display:block!important}.intro{box-shadow:none}footer{display:none}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">FUNDAMENTAL INFORMATION TECHNOLOGY ENGINEER</div>
+      <h1>修了認定試験<br>60問 詳細解説</h1>
+      <p>2024年12月8日実施分。正答だけでなく、計算の途中、用語の見分け方、誤りやすいポイントまで一問ずつ整理しました。</p>
+      <div class="meta"><span>全60問</span><span>合格基準 36問以上</span><span>試験時間 90分</span><span>科目A対策</span></div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="side">
+      <h2>問題を絞り込む</h2>
+      <label for="search">キーワード</label>
+      <input id="search" type="search" placeholder="例：データベース、計算">
+      <label for="category">分野</label>
+      <select id="category"><option value="">すべての分野</option></select>
+      <div class="score"><span>学習済み</span><strong id="progress">0 / 60</strong></div>
+      <button class="primary" id="openAll">全解説を開く</button>
+      <button class="ghost" id="closeAll">すべて閉じる</button>
+      <button class="ghost" id="reset">学習記録をリセット</button>
+    </aside>
+
+    <main>
+      <section class="intro">
+        <h2>使い方</h2>
+        <p>問題カードを押すと解説が開きます。まず自力で答えを考え、解説を読んだら「理解した」にチェックしてください。問題文は学習用に要点を要約しています。</p>
+      </section>
+      <section id="questions" class="questions"></section>
+    </main>
+  </div>
+
+  <footer>出典：修了認定に係る試験（基本情報技術者試験に係る問題）2024年12月8日実施分・公式解答</footer>
+
+  <script>
+  const q = [
+    [1,"基礎理論","多数の実数を加算するとき、絶対値の小さい順に計算する理由","エ","情報落ちを抑える方法。非常に大きい数へ小さい数を足すと、小さい数が仮数部の桁外に追い出されることがある。小さい値同士を先にまとめれば、有効桁を保ちやすい。","アンダフローは絶対値が小さすぎる場合、打切り誤差は反復計算の打切り、けた落ちは近い値の減算で有効桁が失われる現象。"],
+    [2,"基礎理論","数字と空白を使う長さ3の文字列の個数","ア","空白なしは10×10×10=1,000通り。3文字目だけ空白は10×10=100通り。2文字目が空白なら、その後に数字は置けないので3文字目も空白となり10通り。合計1,110通り。","制約を場合分けし、重複や禁止パターンを混ぜない。"],
+    [3,"基礎理論","7ビット文字コードに偶数パリティを付加","イ","1の個数が偶数になるよう先頭ビットを決める。30は1が2個なので30、3Fは6個なので3F、7Aは5個なので先頭を1にしてFA。","16進数を8ビットの2進数に直して1を数える。"],
+    [4,"アルゴリズム","反復で値が変化しなくなったときの関係式","エ","反復は x←y の後に y←f(x) を計算する。収束後は新しいyと直前のyが等しいので、固定点の条件 f(y)=y が成立する。","反復法の収束先は関数の固定点。"],
+    [5,"アルゴリズム","配列末尾へ追加し、末尾から取り出すデータ構造","イ","fはポインタを増やして追加し、gは最後に追加した要素を取り出してポインタを減らす。後入れ先出し（LIFO）なのでスタック。","キューは先入れ先出し（FIFO）。"],
+    [6,"アルゴリズム","文字順位の総和 mod 27 のハッシュ衝突","イ","SEPは19+5+16=40、40 mod 27=13。FEBは6+5+2=13で同じハッシュ値になる。","ハッシュ衝突は異なるキーが同じ値になること。"],
+    [7,"ソフトウェア","複数タスクから同時・並行に実行できる性質","イ","実行中に別タスクから再び呼び出しても正しく動く性質は再入可能（リエントラント）。共有する書換え可能データを持たないなどの設計が必要。","再使用可能は再ロードせず使える性質で、同時実行可能とは限らない。"],
+    [8,"ハードウェア","パワーゲーティングの説明","ウ","使用していない回路ブロックへの電源供給を遮断し、漏れ電流を含む消費電力を抑える技術。","クロック停止はクロックゲーティング、電圧・周波数変更はDVFS。"],
+    [9,"ハードウェア","アクセス時間が最も短い記憶装置","イ","CPUレジスタは演算装置に最も近く、通常はキャッシュ、主記憶、磁気ディスクより高速。","記憶階層は一般に、レジスタ→キャッシュ→主記憶→補助記憶。"],
+    [10,"ハードウェア","磁気ディスク装置の性能","ア","アクセス時間は主にシーク時間、回転待ち時間、転送時間からなる。回転速度を上げると回転待ちが短くなり、位置決め時間を短縮するとシークが短くなる。","容量は面数・トラック数・セクタ数などで決まり、転送速度は回転速度と記録密度に関係する。"],
+    [11,"システム","分散処理システムのアクセス透過性","ア","遠隔資源を、場所や遠隔側の処理方式を意識せず、手元の資源と同様の操作で利用できること。","場所・移動・複製・障害などを利用者から隠す考え方を透過性という。"],
+    [12,"システム","単位時間当たりに処理される仕事量","ア","スループットは一定時間内に完了できる処理量。","ターンアラウンドタイムは投入から完了まで、レスポンスタイムは要求から応答まで。"],
+    [13,"システム","3台のプリンタへ空き順に割り当てた総処理時間","ア","時系列に割り当てると、Aは5分の後に10分で計15分、Bは12分、Cは4+3+4=11分。長い順はA、B、C。","各装置の終了時刻を更新する簡単な表を作ると確実。"],
+    [14,"ソフトウェア","実行された部分の割合を測るホワイトボックス用ツール","エ","命令網羅、分岐網羅などのテストカバレージを測定するのはテストカバレージ分析ツール。","静的解析は実行せずソースを調べる。"],
+    [15,"ソフトウェア","Hadoopの説明","エ","大規模データを複数ノードで分散保存・分散処理するためのソフトウェア群。代表要素はHDFSやMapReduce。","RDBMSやWebサーバ、Java EEアプリケーションサーバではない。"],
+    [16,"基礎理論","入力XとYが同じときだけ1となる論理回路","ウ","求めるのはXNOR（論理一致）で、XY + ¬X¬Y。選択肢ウはNANDだけでこの式を構成している。","真理値表で00と11だけ1になるかを確認する。"],
+    [17,"ソフトウェア","アクセシビリティを高めるWebページ設計","ウ","必須項目を色だけで示すと色を識別しにくい利用者へ伝わらない。文字でも「必須」と明示する。","自動音声再生や表組みによるレイアウトは利用を妨げる場合がある。altには画像の意味を記述する。"],
+    [18,"データベース","キーバリューストアの説明","エ","一意なキーと、それに対応する任意の値を組にして保存する。単純な構造で水平分散しやすい。","アはグラフDB、イはドキュメントDB、ウは関係DB。"],
+    [19,"データベース","関係データベースの主キーの性質","ウ","同じ表の中で主キー値が重複する行は存在できない。さらにNULLにもできない。","複数列からなる複合主キーも作れる。主キー以外の列でも検索できる。"],
+    [20,"データベース","特定利用者に表の更新権限を与えるSQL","エ","GRANT文でUPDATEなどの権限を利用者やロールへ付与する。","CONNECTは接続、参照制約は整合性、ASSERTIONは一般制約の定義。"],
+    [21,"データベース","ビューを利用する目的","イ","行や列を限定したビューだけを利用者に公開すれば、基表の機密部分を隠せる。","ビューは論理的な見え方を提供する。物理的データ独立性はDBMS全体の機能。"],
+    [22,"データベース","共有ロックと専有ロックの両立性","イ","共有ロック同士は共存できるが、共有ロック中の資源に他トランザクションが専有ロックを取ることはできない。","専有ロックは他の共有・専有ロックのどちらとも両立しない。"],
+    [23,"ネットワーク","専用線の回線利用率","ウ","2件単位なので1時間に50,000ブロック。1ブロックは2,000×2+400=4,400バイト。送信量は220,000,000バイト=1,760Mビット/時。1Mビット/秒の回線容量は3,600Mビット/時なので約48.9%、約49%。","単位をバイトからビットへ直す際に8倍する。"],
+    [24,"ネットワーク","レイヤ2スイッチの特徴","イ","学習したMACアドレス表を参照し、宛先MACがあるLANポートだけにフレームを転送する。","IP割当てはDHCP、全ポート転送はリピータハブ的動作、IPフラグメントはネットワーク層。"],
+    [25,"ネットワーク","255.255.255.240で同一サブネットの組合せ","イ","/28なので1ブロック16アドレス。192.168.1.17と.29はどちらも16～31のブロックに属する。","境界は0、16、32、48…と16刻み。"],
+    [26,"ネットワーク","電子メールの送信・受信プロトコル","エ","送信にはSMTP、メールサーバ上のメールを管理・受信する方式にはIMAP4を使用する。","POP3も受信に使うが、選択肢の正しい組合せはSMTP＋IMAP4。"],
+    [27,"セキュリティ","UDPの性質を悪用したDDoS攻撃","ア","DNSリフレクタ攻撃は送信元IPを被害者に偽装したUDP要求を多数のDNSサーバへ送り、増幅した応答を被害者へ集中させる。","他の選択肢はWebや認証に対する攻撃で、UDP反射・増幅とは異なる。"],
+    [28,"セキュリティ","共通鍵暗号方式の特徴","ウ","同程度の安全性なら公開鍵暗号より処理が高速で、大量データの暗号化に向く。","鍵共有が必要だが平文送付は不可。1対1では通常1個の共通鍵を共有する。鍵ペアは公開鍵方式。"],
+    [29,"セキュリティ","XML署名で実現できること","ウ","文書全体だけでなく一部分への署名、複数署名、入れ子署名など、XML構造を利用した柔軟な署名ができる。","XML署名は暗号化やAjax、ステガノグラフィそのものではない。"],
+    [30,"セキュリティ","IoTデバイスの耐タンパ性","ウ","ケース開封を光センサで検知し、秘密情報を消去する仕組みは、物理的解析や改ざんに抵抗する耐タンパ技術。","暗号化は通信保護、GPSは追跡、予備機交換は可用性対策。"],
+    [31,"セキュリティ","フォールスネガティブ","ウ","実際には感染しているのに「感染していない」と判定する偽陰性。危険なものを見逃す誤り。","フォールスポジティブは安全なものを危険と誤検知する。"],
+    [32,"セキュリティ","情報漏えい対策","エ","ノートPCのストレージ暗号化は、紛失・盗難時に保存データを読み取られるリスクを低減する。","チェックサムは誤り検出、ミラーリングと遠隔バックアップは主に可用性対策。"],
+    [33,"セキュリティ","攻撃者の挙動を調査するため意図的に脆弱にしたシステム","ウ","ハニーポットは攻撃を誘引・観察するおとりシステム。攻撃手法やマルウェアの活動分析に使う。","DMZは境界ネットワーク、SIEMはログ統合分析、ボットネットは侵害端末群。"],
+    [34,"ソフトウェア","オブジェクト間の相互作用を時系列に表すUML図","ウ","シーケンス図はオブジェクトのライフラインとメッセージを時間順に示す。","状態遷移図は一つの対象の状態変化、アクティビティ図は処理フロー。"],
+    [35,"ソフトウェア","クラスの属性や機能をサブクラスで利用する仕組み","ウ","継承では上位クラスの属性・操作を下位クラスへ引き継げる。","オーバーライドは継承した操作の再定義、カプセル化は内部の隠蔽、多相性は同じ呼出しで異なる動作。"],
+    [36,"ソフトウェア","状態遷移図の説明","イ","状態を変化させるイベントと、遷移に伴って実行される動作を表す。","アは構造図、ウは機能階層、エはDFDの説明。"],
+    [37,"ソフトウェア","ブラックボックステストのテストケース設計","イ","内部構造ではなく、機能仕様やインタフェース仕様から入力と期待結果を設計する。","処理手順、ソース、全分岐の真偽を基にする方法はホワイトボックステスト。"],
+    [38,"ソフトウェア","トップダウン結合テストで下位モジュールを代替","ウ","上位からテストすると、未完成の下位モジュールの代わりにスタブを使う。","ボトムアップでは上位を代替するドライバを使う。"],
+    [39,"ソフトウェア","スクラムの説明","ウ","スクラムはプロダクトオーナー等の役割、スプリントレビュー等のイベント、プロダクトバックログ等の作成物、ルールで構成される。","アはXP、イは別のライフサイクル、エはフィーチャ駆動開発の説明。"],
+    [40,"ソフトウェア","XPで提唱されるプラクティス","ウ","ペアプログラミングはXPの代表的プラクティス。2人でレビューしながら実装し、知識共有と品質向上を図る。","構造化設計やユースケースはXP固有ではない。"],
+    [41,"プロジェクト管理","コンティンジェンシ計画で決定すること","ア","特定のリスク条件が発生したときだけ実行する、あらかじめ定義した対応策を決める。","資源、品質要求、コミュニケーションは別のマネジメント計画の対象。"],
+    [42,"プロジェクト管理","ガントチャートの特徴","ウ","各作業を横棒で表し、開始・終了の予定と実績、進行中の作業を時系列で把握できる。","順序関係や余裕はPERT、重要ポイントはマイルストーン、出来高と費用はEVMが得意。"],
+    [43,"サービス管理","容量・能力管理における傾向分析","ア","過去から現在までの資源利用状況を時系列で捉え、その傾向を延長して将来の需要を予測する。","待ち行列は解析的モデリング、模擬取引はシミュレーション、現状再現モデルはベースライン作成。"],
+    [44,"サービス管理","7～19時提供で16時から停止した日の可用性","エ","合意サービス時間は12時間。実際に利用できたのは7～16時の9時間。9÷12×100=75%。19～21時の修理時間は合意時間外なので分母にも停止時間にも加えない。","可用性は合意サービス時間に対する利用可能時間の割合。"],
+    [45,"監査","システム監査人の独立性","エ","利害関係のない外部監査人を内部監査人として位置付け、開発監査を行わせるのが最も独立性を確保しやすい。","自部門や自ら開発したシステム、受託ベンダ自身の監査は自己監査となり独立性を欠く。"],
+    [46,"経営戦略","IT投資マネジメントの戦略レベルの実施項目","ウ","全社視点で評価方法、IT投資ポートフォリオの選択基準、全社IT投資テーマを決めるのは戦略マネジメント。","個別計画、進捗評価、事後評価は個々のプロジェクト側の活動。"],
+    [47,"経営戦略","BSCの学習と成長の視点に当たるKPI","ウ","社内要員をITプロフェッショナルとして育成する目標は、人材・能力・組織基盤を扱う「学習と成長」の視点。","満足度は顧客、提案数や再利用は業務プロセス、受注金額は財務の視点。"],
+    [48,"経営戦略","グリーン調達の説明","エ","価格・品質だけでなく環境負荷の小さい製品・サービスを、環境負荷低減に努める事業者から優先調達する。","資金調達、エコラベル規格、グリーン電力証書とは異なる。"],
+    [49,"経営戦略","ベンチマーキングの説明","イ","競合企業や先進企業の製品・サービス・業務を定性・定量比較し、差を分析して自社の改善や戦略に生かす。","ウはBPR、エはコアコンピタンスへの集中。"],
+    [50,"経営戦略","購入者割合を高める画面改善の効果指標","イ","サイト訪問者のうち購入などの最終成果へ至った割合はコンバージョン率。目的そのものを直接測れる。","クリック率やページビューは途中行動、ROASは広告費用対効果。"],
+    [51,"経営戦略","SFAの説明","ア","Sales Force Automationは営業活動にITを活用し、案件・顧客・行動を管理して営業効率、品質、売上、顧客満足を高める。","イはリテールサポート、ウはERP、エはEC。"],
+    [52,"経営戦略","コンカレントエンジニアリング","イ","設計、生産計画など製品開発の工程を同時並行で進め、手戻りを早期に減らして開発期間を短縮する。","順番に進める方式の反対。アはVE、エはリバースエンジニアリング。"],
+    [53,"経営戦略","XBRLの説明","イ","財務・経営・投資などの事業報告データを作成、交換、比較するための標準化されたXMLベース言語。","アはHTML、ウは文書表示形式、エは帳票用プログラム言語の説明。"],
+    [54,"経営戦略","MRPの特徴","エ","基準生産計画、部品表、在庫情報を基に、必要な部品の量と必要時期を計算する資材所要量計画。","受注生産、作業指示、同時並行開発そのものではない。"],
+    [55,"経営戦略","ICタグ（RFID）の特徴","エ","無線で読み取るため、梱包の外からでも情報を読め、バーコードより汚れに強い。","GPSは不要で、読取り装置へ挿入する必要もない。一般に大容量外部記憶を前提としない。"],
+    [56,"経営戦略","M&Aの利点","イ","買収・合併によって自社にない技術、ノウハウ、人材、販路などを取得し、新規事業へ短期間で参入できる。","他の選択肢は職能別組織、社内ベンチャー、事業部制の利点。"],
+    [57,"経営戦略","ABC分析で売上70%以上を含むA区分の最小商品数","ウ","総額800の70%は560。売上順の累計は180、320、440、540、620。4商品では540で不足し、5商品で620となるため最小5商品。","境界値を超える最初の個数まで含める。"],
+    [58,"経営戦略","散布図から読み取れる相関","エ","xが増えるほどyが下がる傾向が明確なので、相関係数は負。","散布図だけで回帰式の次数や、x→yとy→xの回帰式が同一とは判断できない。"],
+    [59,"経営戦略","先入先出法による4月10日の払出単価","イ","最初に前月繰越2,000個を100円で払い出し、残る1,000個を4月5日購入分130円から払い出す。総額330,000円÷3,000個=110円。","FIFOでは古い在庫から順に払い出す。"],
+    [60,"法務","サイバーセキュリティ戦略本部を置く機関","エ","サイバーセキュリティ基本法に基づき、サイバーセキュリティ戦略本部は内閣に置かれる。","重要な法令問題は、機関名と設置根拠をセットで覚える。"]
+  ];
+
+  const area=document.querySelector("#questions"), cat=document.querySelector("#category");
+  [...new Set(q.map(x=>x[1]))].forEach(x=>cat.insertAdjacentHTML("beforeend",`<option>${x}</option>`));
+  const learned=new Set(JSON.parse(localStorage.getItem("fe-learned")||"[]"));
+  function render(){
+    area.innerHTML=q.map(x=>`<article class="card" data-cat="${x[1]}" data-text="${(x.join(" ")).toLowerCase()}">
+      <div class="card-head" role="button" tabindex="0">
+        <div class="num">問${x[0]}</div><div><div class="tag">${x[1]}</div><h3>${x[2]}</h3></div><div class="answer-pill">正解 ${x[3]}</div>
+      </div>
+      <div class="body"><p class="summary">正解：${x[3]}</p>
+        <div class="explain"><h4>解説</h4><p>${x[4]}</p></div>
+        ${diagram(x[0])}
+        <div class="tip"><h4>押さえるポイント</h4><p>${x[5]}</p></div>
+        <label class="check"><input type="checkbox" data-id="${x[0]}" ${learned.has(x[0])?"checked":""}> この問題を理解した</label>
+      </div></article>`).join("");
+    bind(); filter(); updateProgress();
+  }
+  const svgStart=(title,view="0 0 760 240")=>`<div class="diagram"><p class="diagram-title">${title}</p><svg viewBox="${view}" role="img" aria-label="${title}"><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#35576d"/></marker></defs>`;
+  const svgEnd=(note="")=>`</svg>${note?`<p class="diagram-note">${note}</p>`:""}</div>`;
+  function diagram(id){
+    const d={
+      2:()=>svgStart("場合分けで数え上げる")+`
+        <rect class="accent" x="30" y="45" width="205" height="95" rx="12"/><text x="132" y="78" text-anchor="middle" font-size="18">空白なし</text><text x="132" y="112" text-anchor="middle" font-size="25" font-weight="700">10×10×10 = 1,000</text>
+        <rect class="box" x="278" y="45" width="205" height="95" rx="12"/><text x="380" y="78" text-anchor="middle" font-size="18">末尾だけ空白</text><text x="380" y="112" text-anchor="middle" font-size="25" font-weight="700">10×10 = 100</text>
+        <rect class="gold" x="525" y="45" width="205" height="95" rx="12"/><text x="627" y="78" text-anchor="middle" font-size="18">2文字目以降が空白</text><text x="627" y="112" text-anchor="middle" font-size="25" font-weight="700">10</text>
+        <text x="380" y="195" text-anchor="middle" font-size="28" font-weight="800">1,000 + 100 + 10 = 1,110 通り</text>`+svgEnd(),
+      3:()=>svgStart("偶数パリティの付け方")+`
+        <text x="55" y="48" font-size="20" font-weight="700">7A</text><text x="120" y="48" font-size="20">= 1111010（1が5個：奇数）</text>
+        <path class="arrow" d="M370 45 H475"/><rect class="accent" x="500" y="19" width="210" height="58" rx="10"/>
+        <text x="605" y="55" text-anchor="middle" font-size="21" font-weight="700">1 1111010 = FA</text>
+        <text x="55" y="124" font-size="20" font-weight="700">30</text><text x="120" y="124" font-size="20">= 0110000（1が2個：偶数）</text>
+        <path class="arrow" d="M370 121 H475"/><rect class="box" x="500" y="95" width="210" height="58" rx="10"/>
+        <text x="605" y="131" text-anchor="middle" font-size="21" font-weight="700">0 0110000 = 30</text>
+        <text x="380" y="205" text-anchor="middle" font-size="18">全8ビットに含まれる「1」の個数が偶数になるよう先頭を決める</text>`+svgEnd(),
+      5:()=>svgStart("スタック：後入れ先出し（LIFO）")+`
+        <rect class="box" x="255" y="35" width="250" height="55" rx="8"/><text x="380" y="70" text-anchor="middle" font-size="21">A[3]　最後に追加</text>
+        <rect class="accent" x="255" y="92" width="250" height="55" rx="8"/><text x="380" y="127" text-anchor="middle" font-size="21">A[2]</text>
+        <rect class="box" x="255" y="149" width="250" height="55" rx="8"/><text x="380" y="184" text-anchor="middle" font-size="21">A[1]　最初に追加</text>
+        <path class="arrow" d="M555 60 H680"/><text x="615" y="45" text-anchor="middle" font-size="18">g()で先に取出し</text>
+        <path class="arrow" d="M80 60 H225"/><text x="150" y="45" text-anchor="middle" font-size="18">f(x)で追加</text>`+svgEnd("皿を積むように、最後に載せたものから取り出します。"),
+      6:()=>svgStart("ハッシュ値を比較")+`
+        <rect class="accent" x="35" y="35" width="300" height="150" rx="14"/><text x="185" y="70" text-anchor="middle" font-size="26" font-weight="700">SEP</text>
+        <text x="185" y="112" text-anchor="middle" font-size="22">19 + 5 + 16 = 40</text><text x="185" y="153" text-anchor="middle" font-size="25" font-weight="700">40 mod 27 = 13</text>
+        <rect class="gold" x="425" y="35" width="300" height="150" rx="14"/><text x="575" y="70" text-anchor="middle" font-size="26" font-weight="700">FEB</text>
+        <text x="575" y="112" text-anchor="middle" font-size="22">6 + 5 + 2 = 13</text><text x="575" y="153" text-anchor="middle" font-size="25" font-weight="700">13 mod 27 = 13</text>
+        <text x="380" y="220" text-anchor="middle" font-size="22" font-weight="800">異なるキーでも同じ13 → 衝突</text>`+svgEnd(),
+      9:()=>svgStart("記憶階層：上ほど高速・小容量")+`
+        <polygon class="accent" points="380,20 475,75 285,75"/><text x="380" y="62" text-anchor="middle" font-size="18" font-weight="700">レジスタ</text>
+        <polygon class="box" points="285,80 475,80 550,130 210,130"/><text x="380" y="116" text-anchor="middle" font-size="18">キャッシュ</text>
+        <polygon class="box" points="210,135 550,135 630,185 130,185"/><text x="380" y="170" text-anchor="middle" font-size="18">主記憶</text>
+        <polygon class="gold" points="130,190 630,190 710,235 50,235"/><text x="380" y="221" text-anchor="middle" font-size="18">磁気ディスクなどの補助記憶</text>
+        <text x="70" y="35" font-size="16">高速</text><path class="arrow" d="M85 48 V160"/><text x="650" y="220" font-size="16">大容量</text>`+svgEnd(),
+      13:()=>svgStart("プリンタへの割当て結果")+`
+        <text x="35" y="55" font-size="20" font-weight="700">A</text><rect class="accent" x="75" y="30" width="100" height="40"/><text x="125" y="57" text-anchor="middle">5分</text><rect class="accent" x="175" y="30" width="200" height="40"/><text x="275" y="57" text-anchor="middle">10分</text><text x="395" y="57" font-size="19">計15分</text>
+        <text x="35" y="125" font-size="20" font-weight="700">B</text><rect class="gold" x="75" y="100" width="240" height="40"/><text x="195" y="127" text-anchor="middle">12分</text><text x="335" y="127" font-size="19">計12分</text>
+        <text x="35" y="195" font-size="20" font-weight="700">C</text><rect class="box" x="75" y="170" width="80" height="40"/><text x="115" y="197" text-anchor="middle">4</text><rect class="box" x="155" y="170" width="60" height="40"/><text x="185" y="197" text-anchor="middle">3</text><rect class="box" x="215" y="170" width="80" height="40"/><text x="255" y="197" text-anchor="middle">4</text><text x="315" y="197" font-size="19">計11分</text>
+        <text x="590" y="115" text-anchor="middle" font-size="25" font-weight="800">長い順</text><text x="590" y="157" text-anchor="middle" font-size="30">A ＞ B ＞ C</text>`+svgEnd(),
+      16:()=>svgStart("論理一致（XNOR）の真理値表")+`
+        <rect class="accent" x="45" y="32" width="300" height="170" rx="14"/><text x="195" y="67" text-anchor="middle" font-size="22" font-weight="700">Z = XY + ¬X¬Y</text>
+        <text x="110" y="112" font-size="19">X</text><text x="190" y="112" font-size="19">Y</text><text x="275" y="112" font-size="19">Z</text>
+        <text x="110" y="145">0</text><text x="190" y="145">0</text><text x="275" y="145" font-weight="700">1</text>
+        <text x="110" y="177">0</text><text x="190" y="177">1</text><text x="275" y="177">0</text>
+        <rect class="box" x="430" y="32" width="285" height="170" rx="14"/><text x="572" y="73" text-anchor="middle" font-size="21">入力が同じ</text>
+        <text x="572" y="117" text-anchor="middle" font-size="30" font-weight="800">00 または 11</text><text x="572" y="163" text-anchor="middle" font-size="24">のときだけ Z=1</text>`+svgEnd(),
+      22:()=>svgStart("ロックの両立性")+`
+        <text x="195" y="40" text-anchor="middle" font-size="19" font-weight="700">先に取得済み</text><text x="505" y="40" text-anchor="middle" font-size="19" font-weight="700">後から取得</text>
+        <rect class="accent" x="60" y="65" width="270" height="55" rx="10"/><text x="195" y="100" text-anchor="middle" font-size="20">共有ロック S</text>
+        <rect class="accent" x="430" y="65" width="270" height="55" rx="10"/><text x="565" y="100" text-anchor="middle" font-size="20">共有ロック S：○</text>
+        <rect class="accent" x="60" y="145" width="270" height="55" rx="10"/><text x="195" y="180" text-anchor="middle" font-size="20">共有ロック S</text>
+        <rect class="bad" x="430" y="145" width="270" height="55" rx="10"/><text x="565" y="180" text-anchor="middle" font-size="20">専有ロック X：×</text>
+        <path class="arrow" d="M340 92 H410"/><path class="arrow" d="M340 172 H410"/>`+svgEnd("専有ロックが先にある場合は、後続の共有・専有ロックとも取得できません。"),
+      23:()=>svgStart("回線利用率の計算")+`
+        <rect class="box" x="35" y="35" width="210" height="80" rx="12"/><text x="140" y="68" text-anchor="middle">1ブロック</text><text x="140" y="98" text-anchor="middle" font-size="19" font-weight="700">4,400バイト</text>
+        <path class="arrow" d="M260 75 H345"/><rect class="accent" x="365" y="35" width="210" height="80" rx="12"/><text x="470" y="68" text-anchor="middle">1時間の送信量</text><text x="470" y="98" text-anchor="middle" font-size="19" font-weight="700">1,760Mビット</text>
+        <path class="arrow" d="M590 75 H675"/><text x="705" y="69" text-anchor="middle" font-size="18">÷</text>
+        <rect class="gold" x="225" y="150" width="310" height="62" rx="12"/><text x="380" y="188" text-anchor="middle" font-size="21" font-weight="800">1,760 ÷ 3,600 ≒ 49%</text>`+svgEnd("回線容量は 1Mビット/秒 × 3,600秒 = 3,600Mビット/時。"),
+      25:()=>svgStart("/28サブネットの境界")+`
+        <rect class="box" x="30" y="65" width="160" height="75" rx="10"/><text x="110" y="95" text-anchor="middle">0 ～ 15</text><text x="110" y="125" text-anchor="middle">別ブロック</text>
+        <rect class="accent" x="205" y="45" width="330" height="115" rx="12"/><text x="370" y="80" text-anchor="middle" font-size="21" font-weight="700">16 ～ 31</text><circle cx="300" cy="118" r="20" fill="#f2b84b"/><text x="300" y="125" text-anchor="middle">17</text><circle cx="445" cy="118" r="20" fill="#f2b84b"/><text x="445" y="125" text-anchor="middle">29</text>
+        <rect class="box" x="550" y="65" width="180" height="75" rx="10"/><text x="640" y="95" text-anchor="middle">32 ～ 47</text><text x="640" y="125" text-anchor="middle">別ブロック</text>
+        <text x="380" y="210" text-anchor="middle" font-size="20">255.255.255.240 = /28 → 16個ずつ区切る</text>`+svgEnd(),
+      28:()=>svgStart("共通鍵暗号と公開鍵暗号の役割")+`
+        <rect class="accent" x="35" y="35" width="315" height="155" rx="14"/><text x="192" y="73" text-anchor="middle" font-size="23" font-weight="700">共通鍵暗号</text><text x="192" y="112" text-anchor="middle" font-size="19">同じ鍵で暗号化・復号</text><text x="192" y="148" text-anchor="middle" font-size="25" font-weight="800">高速・大量データ向き</text>
+        <rect class="box" x="410" y="35" width="315" height="155" rx="14"/><text x="567" y="73" text-anchor="middle" font-size="23" font-weight="700">公開鍵暗号</text><text x="567" y="112" text-anchor="middle" font-size="19">公開鍵と秘密鍵のペア</text><text x="567" y="148" text-anchor="middle" font-size="21">鍵配送・署名に便利</text>`+svgEnd(),
+      38:()=>svgStart("トップダウン結合テスト")+`
+        <rect class="accent" x="280" y="25" width="200" height="55" rx="10"/><text x="380" y="60" text-anchor="middle" font-size="20" font-weight="700">上位モジュール</text>
+        <path class="arrow" d="M330 85 L215 145"/><path class="arrow" d="M430 85 L545 145"/>
+        <rect class="gold" x="90" y="150" width="250" height="60" rx="10"/><text x="215" y="186" text-anchor="middle" font-size="20">スタブ（下位の代役）</text>
+        <rect class="gold" x="420" y="150" width="250" height="60" rx="10"/><text x="545" y="186" text-anchor="middle" font-size="20">スタブ（下位の代役）</text>`+svgEnd("上位から下へテストするので、まだない下位モジュールをスタブで置き換えます。"),
+      44:()=>svgStart("可用性：合意サービス時間だけで計算")+`
+        <text x="35" y="55" font-size="18">7:00</text><text x="340" y="55" font-size="18">16:00</text><text x="690" y="55" font-size="18">19:00</text>
+        <rect class="accent" x="70" y="75" width="360" height="62" rx="8"/><text x="250" y="113" text-anchor="middle" font-size="21">稼働 9時間</text>
+        <rect class="bad" x="430" y="75" width="240" height="62" rx="8"/><text x="550" y="113" text-anchor="middle" font-size="21">停止 3時間</text>
+        <text x="380" y="190" text-anchor="middle" font-size="27" font-weight="800">9時間 ÷ 12時間 × 100 = 75%</text>`+svgEnd("19時以降の修理時間は合意サービス時間外なので計算対象外です。"),
+      57:()=>svgStart("ABC分析：累計が70%に届くまで")+`
+        <text x="40" y="35" font-size="17">累計売上</text>
+        <rect class="accent" x="70" y="165" width="80" height="55"/><text x="110" y="197" text-anchor="middle">180</text>
+        <rect class="accent" x="160" y="125" width="80" height="95"/><text x="200" y="157" text-anchor="middle">320</text>
+        <rect class="accent" x="250" y="90" width="80" height="130"/><text x="290" y="122" text-anchor="middle">440</text>
+        <rect class="gold" x="340" y="60" width="80" height="160"/><text x="380" y="92" text-anchor="middle">540</text>
+        <rect class="accent" x="430" y="35" width="80" height="185"/><text x="470" y="67" text-anchor="middle" font-weight="700">620</text>
+        <line x1="45" y1="53" x2="700" y2="53" stroke="#b84b4b" stroke-width="3" stroke-dasharray="8 6"/><text x="590" y="43" font-size="17" fill="#b84b4b">70% = 560</text>
+        <text x="110" y="238" text-anchor="middle">a</text><text x="200" y="238" text-anchor="middle">b</text><text x="290" y="238" text-anchor="middle">c</text><text x="380" y="238" text-anchor="middle">d</text><text x="470" y="238" text-anchor="middle">e</text>`+svgEnd("4商品では540で届かず、5商品目で620となり70%を超えます。"),
+      58:()=>svgStart("負の相関")+`
+        <line x1="80" y1="205" x2="700" y2="205" stroke="#35576d" stroke-width="3"/><line x1="80" y1="205" x2="80" y2="25" stroke="#35576d" stroke-width="3"/>
+        <text x="710" y="210" font-size="19">x</text><text x="65" y="25" font-size="19">y</text>
+        ${[[140,60],[185,75],[220,68],[260,98],[305,90],[345,118],[390,108],[430,142],[475,135],[515,160],[565,155],[610,180]].map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="7" fill="#238184"/>`).join("")}
+        <path d="M125 52 L635 188" stroke="#c78b18" stroke-width="4" stroke-dasharray="10 7"/>
+        <text x="465" y="48" font-size="24" font-weight="800">x↑ のとき y↓</text><text x="465" y="80" font-size="21">相関係数は負</text>`+svgEnd(),
+      59:()=>svgStart("FIFO：古い在庫から払い出す")+`
+        <rect class="accent" x="35" y="45" width="280" height="105" rx="12"/><text x="175" y="80" text-anchor="middle" font-size="20" font-weight="700">前月繰越</text><text x="175" y="118" text-anchor="middle" font-size="22">2,000個 × 100円</text>
+        <rect class="gold" x="365" y="45" width="280" height="105" rx="12"/><text x="505" y="80" text-anchor="middle" font-size="20" font-weight="700">4月5日購入分から</text><text x="505" y="118" text-anchor="middle" font-size="22">1,000個 × 130円</text>
+        <text x="340" y="191" text-anchor="middle" font-size="21">合計 330,000円 ÷ 3,000個</text><text x="340" y="225" text-anchor="middle" font-size="28" font-weight="800">払出単価 110円</text>`+svgEnd()
+    };
+    return d[id]?d[id]():"";
+  }
+  function bind(){
+    document.querySelectorAll(".card-head").forEach(h=>{
+      const toggle=()=>h.parentElement.classList.toggle("open");
+      h.onclick=toggle; h.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();toggle()}};
+    });
+    document.querySelectorAll(".check input").forEach(c=>c.onchange=()=>{
+      const id=+c.dataset.id;c.checked?learned.add(id):learned.delete(id);
+      localStorage.setItem("fe-learned",JSON.stringify([...learned]));updateProgress();
+    });
+  }
+  function filter(){
+    const s=document.querySelector("#search").value.toLowerCase(), c=cat.value;
+    document.querySelectorAll(".card").forEach(el=>el.classList.toggle("hidden",!!((s&&!el.dataset.text.includes(s))||(c&&el.dataset.cat!==c))));
+  }
+  function updateProgress(){document.querySelector("#progress").textContent=`${learned.size} / 60`}
+  document.querySelector("#search").oninput=filter;cat.onchange=filter;
+  document.querySelector("#openAll").onclick=()=>document.querySelectorAll(".card:not(.hidden)").forEach(x=>x.classList.add("open"));
+  document.querySelector("#closeAll").onclick=()=>document.querySelectorAll(".card").forEach(x=>x.classList.remove("open"));
+  document.querySelector("#reset").onclick=()=>{if(confirm("学習済みのチェックをすべて消しますか？")){learned.clear();localStorage.removeItem("fe-learned");render()}};
+  render();
+  </script>
+</body>
+</html>
