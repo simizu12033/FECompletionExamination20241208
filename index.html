@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>令和6年12月8日実施 基本情報技術者試験(FE) 修了認定試験 徹底解説 | 全60問図解集</title>
+<style>
+:root{
+  --paper:#f3f0e8;
+  --paper-line:#d9d3c4;
+  --ink:#1f2a33;
+  --ink-soft:#4a5660;
+  --blue-deep:#10243f;
+  --blue-mid:#1c3a5e;
+  --blue-line:#5b85ab;
+  --accent:#c98b3a;
+  --accent-soft:#e9c896;
+  --section1:#4a7ba6;
+  --section2:#5e8c61;
+  --section3:#b07a3e;
+  --correct-bg:#fff6e4;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:"Hiragino Sans","Noto Sans JP","Yu Gothic","Helvetica Neue",sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.7;
+}
+/* Blueprint grid background */
+body{
+  background-image:
+    linear-gradient(rgba(91,133,171,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91,133,171,0.06) 1px, transparent 1px);
+  background-size:28px 28px;
+}
+
+/* HEADER */
+header.hero{
+  background:linear-gradient(135deg,var(--blue-deep) 0%, var(--blue-mid) 60%, #234a73 100%);
+  color:#eef3f8;
+  padding:64px 24px 56px;
+  position:relative;
+  overflow:hidden;
+  border-bottom:6px solid var(--accent);
+}
+header.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:980px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+.hero-eyebrow{
+  font-size:0.85rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--accent-soft);
+  font-weight:600;
+  margin-bottom:14px;
+}
+h1.hero-title{
+  font-size:clamp(1.7rem,5vw,2.8rem);
+  margin:0 0 12px;
+  font-weight:800;
+  letter-spacing:0.02em;
+}
+.hero-sub{
+  font-size:1.05rem;
+  color:#cdd9e6;
+  max-width:680px;
+  margin:0 0 28px;
+}
+.hero-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:8px;
+}
+.hero-meta span{
+  border:1px solid rgba(255,255,255,0.28);
+  border-radius:999px;
+  padding:6px 16px;
+  font-size:0.85rem;
+  color:#e6edf4;
+  background:rgba(255,255,255,0.04);
+}
+
+/* NAV / TOC */
+nav.toc{
+  max-width:980px;
+  margin:-30px auto 0;
+  background:#fffdf8;
+  border:1px solid var(--paper-line);
+  border-radius:10px;
+  box-shadow:0 12px 30px -18px rgba(16,36,63,0.45);
+  padding:24px 28px 28px;
+  position:relative;
+  z-index:2;
+}
+nav.toc h2{
+  font-size:1rem;
+  letter-spacing:0.08em;
+  margin:0 0 16px;
+  color:var(--ink-soft);
+  text-transform:uppercase;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+nav.toc h2::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:var(--paper-line);
+}
+.grid-nav{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(46px,1fr));
+  gap:6px;
+}
+.grid-nav a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:42px;
+  border:1px solid var(--paper-line);
+  border-radius:6px;
+  text-decoration:none;
+  color:var(--ink);
+  font-size:0.85rem;
+  font-weight:600;
+  background:#fff;
+  transition:all .15s ease;
+}
+.grid-nav a:hover{
+  border-color:var(--blue-line);
+  background:#eef4fa;
+  color:var(--blue-mid);
+  transform:translateY(-1px);
+}
+.grid-nav a.s1{border-bottom:3px solid var(--section1);}
+.grid-nav a.s2{border-bottom:3px solid var(--section2);}
+.grid-nav a.s3{border-bottom:3px solid var(--section3);}
+
+.toc-legend{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  margin-top:16px;
+  font-size:0.8rem;
+  color:var(--ink-soft);
+}
+.toc-legend .dot{
+  display:inline-block;
+  width:10px;height:10px;
+  border-radius:2px;
+  margin-right:6px;
+  vertical-align:middle;
+}
+.dot.s1{background:var(--section1);}
+.dot.s2{background:var(--section2);}
+.dot.s3{background:var(--section3);}
+
+/* SECTION DIVIDERS */
+.section-divider{
+  max-width:980px;
+  margin:56px auto 24px;
+  padding:0 4px;
+}
+.section-divider .label{
+  display:inline-block;
+  font-size:0.78rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:#fff;
+  padding:6px 14px;
+  border-radius:4px;
+  font-weight:700;
+}
+.section-divider.s1 .label{background:var(--section1);}
+.section-divider.s2 .label{background:var(--section2);}
+.section-divider.s3 .label{background:var(--section3);}
+.section-divider h3{
+  margin:10px 0 4px;
+  font-size:1.3rem;
+  color:var(--ink);
+}
+.section-divider p{
+  margin:0;
+  color:var(--ink-soft);
+  font-size:0.95rem;
+}
+
+/* QUESTION CARDS */
+main{
+  max-width:980px;
+  margin:0 auto;
+  padding:0 16px 100px;
+}
+.qcard{
+  background:#fff;
+  border:1px solid var(--paper-line);
+  border-radius:10px;
+  margin-bottom:22px;
+  overflow:hidden;
+  scroll-margin-top:20px;
+}
+.qcard-head{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:16px 20px;
+  border-bottom:1px solid var(--paper-line);
+  background:#fbf9f4;
+}
+.qnum{
+  font-family:"Georgia",serif;
+  font-weight:800;
+  font-size:1.4rem;
+  color:var(--blue-mid);
+  min-width:64px;
+}
+.qcard-head h4{
+  margin:0;
+  font-size:1.05rem;
+  font-weight:700;
+  flex:1;
+  color:var(--ink);
+}
+.ans-pill{
+  flex-shrink:0;
+  background:var(--correct-bg);
+  border:1px solid var(--accent-soft);
+  color:#7a4e10;
+  font-weight:700;
+  font-size:0.9rem;
+  padding:6px 14px;
+  border-radius:999px;
+  white-space:nowrap;
+}
+.qcard-body{
+  padding:0;
+}
+.qcard-body img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-top:1px solid var(--paper-line);
+}
+.qcard-foot{
+  padding:10px 20px 16px;
+  font-size:0.82rem;
+  color:var(--ink-soft);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+.back-top{
+  text-decoration:none;
+  color:var(--blue-line);
+  font-weight:600;
+}
+.back-top:hover{text-decoration:underline;}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:36px 16px 60px;
+  color:var(--ink-soft);
+  font-size:0.85rem;
+  border-top:1px solid var(--paper-line);
+  margin-top:40px;
+}
+footer .answer-note{
+  max-width:680px;
+  margin:0 auto 8px;
+}
+
+/* sticky mini nav */
+.jumpbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(243,240,232,0.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--paper-line);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 16px;
+  font-size:0.85rem;
+}
+.jumpbar a{color:var(--blue-mid);text-decoration:none;font-weight:700;}
+.jumpbar select{
+  font-size:0.9rem;
+  padding:4px 8px;
+  border-radius:6px;
+  border:1px solid var(--paper-line);
+  background:#fff;
+}
+.jumpbar .spacer{flex:1;}
+
+@media (max-width:560px){
+  .grid-nav{grid-template-columns:repeat(auto-fill,minmax(38px,1fr));}
+  .grid-nav a{height:36px;font-size:0.78rem;}
+  .qnum{font-size:1.15rem;min-width:50px;}
+  .qcard-head h4{font-size:0.95rem;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">基本情報技術者試験(FE) ／ 修了認定に係る試験</div>
+    <h1 class="hero-title">令和6年12月8日実施　全60問　徹底図解解説</h1>
+    <p class="hero-sub">問1〜問60のすべてについて、正解・図解・技術解説をまとめた学習用ページです。各設問は「Math &amp; Logic」「Architecture」「Network &amp; Security」「Development」「Management &amp; Strategy」など分野別に整理しています。</p>
+    <div class="hero-meta">
+      <span>試験時間：1時間30分（9:30〜11:00）</span>
+      <span>問題数：問1〜問60（全問必須）</span>
+      <span>合格基準：60問中36問以上</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>問題一覧（タップでジャンプ）</h2>
+  <div class="grid-nav" id="grid-nav"></div>
+  <div class="toc-legend">
+    <span><span class="dot s1"></span>問1〜20：基礎理論・コンピュータ構成・技術要素</span>
+    <span><span class="dot s2"></span>問21〜40：データベース・ネットワーク・セキュリティ・開発技術</span>
+    <span><span class="dot s3"></span>問41〜60：プロジェクト・サービス・ストラテジ</span>
+  </div>
+</nav>
+
+<div class="jumpbar">
+  <a href="#top">▲ TOP</a>
+  <span class="spacer"></span>
+  <label for="jump">問題へ移動：</label>
+  <select id="jump" onchange="if(this.value) location.hash=this.value;">
+    <option value="">選択...</option>
+  </select>
+</div>
+
+<main id="main"></main>
+
+<footer>
+  <p class="answer-note">本ページは令和6年12月8日実施「修了認定に係る試験（基本情報技術者試験に係る問題）」問1〜問60の解説資料です。正解は試験実施団体が公開した解答（合格基準：60問中36問以上）に基づいています。</p>
+  <p>図解・解説：NotebookLM Masterclass Explainer Series（問1〜60）</p>
+</footer>
+
+<script>
+const sectionInfo = {
+  1:{label:"SECTION 1 — 問1〜20", title:"基礎理論・コンピュータ構成・技術要素", desc:"数学・論理、アルゴリズムとデータ構造、プロセッサ・記憶装置、システム構成とテスト技法、データベース基礎を扱う前半パート。"},
+  2:{label:"SECTION 2 — 問21〜40", title:"データベース・ネットワーク・セキュリティ・開発技術", desc:"トランザクション制御、ネットワーク計算、暗号・セキュリティ対策、UML設計、テスト技法、アジャイル開発の実践知識。"},
+  3:{label:"SECTION 3 — 問41〜60", title:"プロジェクトマネジメント・サービスマネジメント・ストラテジ", desc:"プロジェクト計画、サービス可用性、経営戦略、財務・在庫管理、企業活動と法務まで、ITエンジニアの視点を経営層へ広げるパート。"}
+};
+
+let dataset = {};
+
+async function init(){
+  const res = await fetch('data.json');
+  dataset = await res.json();
+
+  const grid = document.getElementById('grid-nav');
+  const main = document.getElementById('main');
+  const jump = document.getElementById('jump');
+  let currentSection = 0;
+
+  for(let i=1;i<=60;i++){
+    const q = dataset[i];
+    if(!q) continue;
+
+    // nav grid
+    const a = document.createElement('a');
+    a.href = '#q'+i;
+    a.textContent = i;
+    a.className = 's'+q.section;
+    grid.appendChild(a);
+
+    // jump select
+    const opt = document.createElement('option');
+    opt.value = '#q'+i;
+    opt.textContent = '問'+i+'　'+q.title;
+    jump.appendChild(opt);
+
+    // section divider
+    if(q.section !== currentSection){
+      currentSection = q.section;
+      const info = sectionInfo[currentSection];
+      const div = document.createElement('div');
+      div.className = 'section-divider s'+currentSection;
+      div.innerHTML = `<span class="label">${info.label}</span>
+        <h3>${info.title}</h3>
+        <p>${info.desc}</p>`;
+      main.appendChild(div);
+    }
+
+    // card
+    const card = document.createElement('section');
+    card.className = 'qcard';
+    card.id = 'q'+i;
+    card.innerHTML = `
+      <div class="qcard-head">
+        <div class="qnum">問${i}</div>
+        <h4>${q.title}</h4>
+        <div class="ans-pill">正解：${q.ans}</div>
+      </div>
+      <div class="qcard-body">
+        <img src="${q.img}" alt="問${i} 解説図：${q.title}" loading="lazy">
+      </div>
+      <div class="qcard-foot">
+        <span>問${i} ／ 60</span>
+        <a class="back-top" href="#top">▲ 一覧へ戻る</a>
+      </div>
+    `;
+    main.appendChild(card);
+  }
+}
+init();
+</script>
+
+</body>
+</html>
